@@ -101,7 +101,15 @@ const ImageEditor = ({ selectedMeme, textElements, updateTextElement }) => {
                                     })
                                 }
                             >
-                                <span className="meme-text">{el.text}</span>
+                                <span
+                                    className="meme-text"
+                                    style={{
+                                        fontFamily: el.fontFamily,
+                                        fontSize: `${el.fontSize}px`,
+                                    }}
+                                >
+                                    {el.text}
+                                </span>
                             </Rnd>
                         ))}
                     </div>

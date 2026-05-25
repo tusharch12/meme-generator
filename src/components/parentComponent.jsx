@@ -10,6 +10,8 @@ const createTextElement = (overrides = {}) => ({
     y: 20,
     width: 180,
     height: 60,
+    fontFamily: "Impact",
+    fontSize: 32,
     ...overrides,
 });
 
@@ -35,17 +37,15 @@ const ParentComponent = () => {
             .catch((error) => console.error("Failed to load memes:", error));
     }, []);
 
-
     const addTextElement = () => {
         setTextElements((prev) => [...prev, createTextElement({ y: prev.length * 80 })]);
     };
-
 
     const removeTextElement = (id) => {
         setTextElements((prev) => prev.filter((el) => el.id !== id));
     };
 
-
+    // Works for text, fontFamily, fontSize, x, y, width, height — any field
     const updateTextElement = (id, updatedFields) => {
         setTextElements((prev) =>
             prev.map((el) => (el.id === id ? { ...el, ...updatedFields } : el))
